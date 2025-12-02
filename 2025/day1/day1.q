@@ -40,5 +40,3 @@ solve2:{[x]
 
 
 t:solve2`:test.txt
-
-
