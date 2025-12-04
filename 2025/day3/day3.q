@@ -18,18 +18,19 @@ func1:{
 
 
 //
-// @desc Part 2: Compute the sum of the largest number that can be built from 12 numbers from left to right order in each row.
+// @desc Part 2: Compute the sum of the largest number that can be built from n numbers from left to right order in each row.
 //
 // @param x {symbol} Filename of the input.
+// @param y {long} Number of digits to consider.
 //
-func2:{
+func2:{[x;y]
     r:"J"$/:/:read0 x; 
     //
     // Index of descending order, then build masks of candidate indices, by how many numbers 
     // are left to the right of it (every time you choose a number, you only have n-1 numbers left).
     // n in this case is 12, given by the problem statement.
     //
-    ix:id@'/:where each'(count[first r]-reverse til 12)>\:id:idesc each r; 
+    ix:id@'/:where each'(count[first r]-reverse til y)>\:id:idesc each r; 
     n:r@'{[x;y]first l where x<l:y}\[0N;]each flip ix; / Lamda function: find first number in the descending order array that is smaller than the previous number
     sum "J"$ raze each string each n
     }
