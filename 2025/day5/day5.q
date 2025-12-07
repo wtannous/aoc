@@ -22,5 +22,5 @@ p2:{[x;y]
         (x[0]+0|y[1]-x 1;x[1]|y 1)] / If we're overlapping, add new numbers to the running count (i.e. larger than the max number encountered), update max number encountered
     }/[0 0;ranges]
 
-first p2
+p2:first p2;
 
